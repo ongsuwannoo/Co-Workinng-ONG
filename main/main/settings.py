@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'g@l8s^)qgkpz+%nydn_d#uk97)o$(ls#d=qtsf5-a_a%ql%4cd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://co-working-space.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -96,7 +96,7 @@ DATABASES = {
 # db_from_env = dj_database_url.config(conn_max_age=600)
 # DATABASES['default'].update(db_from_env)
 
-DATABASES['default'] = dj_database_url.config(default='postgres://pxwotxroiryzjl:fa703e78cd7dd63e07472222fc55a7bb13a85a01423ecc37199b106d8bc0b346@ec2-18-235-20-228.compute-1.amazonaws.com:5432/deaaja5uuqqo31')
+DATABASES['default'] = dj_database_url.config(default='postgres://lyubutjfqjutee:e31bd0979a5d11cd8253b19fe96b52ae2cdd3ac64e7bb3b507e3cc3c5da01600@ec2-34-200-101-236.compute-1.amazonaws.com:5432/deljaoci7rqbbq')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
