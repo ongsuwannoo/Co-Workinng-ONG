@@ -2,6 +2,7 @@
 {% block content %}
     <div class="container">
         <h1>Create Member</h1>
+        <br/><br/>
         {% if txt %} {{txt | safe }} {% endif %}
         <form method="POST" action="{% url 'create_member' %}">
             {% csrf_token %}
