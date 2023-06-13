@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <h1>Create Member</h1>
+        {% if txt %} {{txt | safe }} {% endif %}
+        <form method="POST" action="{% url 'create_member' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>First Name:</label>
+                <input type="text" class="form-control ml-3" id="first_name" name="first_name" value="{{first_name}}">
+            </div>
+            <div class="form-group">
+                <label>Last Name:</label>
+                <input type="text" class="form-control ml-3" id="last_name" name="last_name" value="{{last_name}}">
+            </div>
+            <button type="submit" class="btn btn-primary ml-3">Create</button>
+        </form>
+    </div>
+    
+{% endblock %}
+
+{% block footer %}
+    
+{% endblock %}
+

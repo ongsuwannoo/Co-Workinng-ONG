@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=DB_COWORKING
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+    ports:
+      - "5433:5432"
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - DB_USER=postgres
+      - DB_PASSWORD=1234
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=DB_COWORKING
+      - ADMIN_EMAIL=admin@admin.com
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=admin001
+    volumes:
+      - data:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    entrypoint: /entrypoint.sh
+volumes:
+  data: {}

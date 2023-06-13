@@ -1,0 +1,29 @@
+[
+  {
+    "model": "process.zone",
+    "pk": 1,
+    "fields": {
+      "title": "Green Zone",
+      "description": "ค่าบริการสำหรับ Green Zone [ ฿20/คน/ชั่วโมง ]",
+      "price": 20
+    }
+  },
+  {
+    "model": "process.zone",
+    "pk": 2,
+    "fields": {
+      "title": "Gold Zone",
+      "description": "ค่าบริการสำหรับ Gold Zone [ ฿60/คน/ชั่วโมง ]",
+      "price": 60
+    }
+  },
+  {
+    "model": "process.zone",
+    "pk": 3,
+    "fields": {
+      "title": "Private Zone",
+      "description": "ค่าบริการสำหรับ Private Zone [ ฿100/คน/ชั่วโมง ]",
+      "price": 100
+    }
+  }
+]

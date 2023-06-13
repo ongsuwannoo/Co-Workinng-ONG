@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Add Money</h1>
+    {% if txt %} {{txt | safe }} {% endif %}
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="card w-100 text-center mt-3">
+                    <h5 class="card-header">Add Money</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Member ID : </h5>
+                        <form method="POST" name="money" action="{% url 'money' %}">
+                            {% csrf_token %}
+                            <input type="text" class="form-control text-center" id="mem_id" name="mem_id"
+                                value="{{mem_id}}">
+                            <p class="card-text">Money Left : ฿ {% if member %}{{money}} {% endif %}</p>
+                            <button type="submit" name="20" class="btn btn-success" value="20">฿+20</button>
+                            <button type="submit" name="50" class="btn btn-success" value="50">฿+50</button>
+                            <button type="submit" name="100" class="btn btn-success" value="100">฿+100</button>
+                            <button type="submit" name="500" class="btn btn-success" value="500">฿+500</button>
+                            <button type="submit" name="1000" class="btn btn-success" value="1000">฿+1000</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 text-center">
+            <div class="card w-100 h-100">
+                <h5 class="card-header">Search</h5>
+                <div class="card-body">
+                    <form method="POST" name="Search" action="{% url 'money' %}">
+                        {% csrf_token %}
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="text" class="form-control" id="search" name="search" placeholder="Search"
+                                value="{{search}}" required>
+                        </div>
+                        <button class="btn btn-info">Search</button>
+                        {% if member %} <p class="card-text" id="money">Member ID : {{mem}} </p>{% endif %}
+                        {% if member %} <p class="card-text" id="money">Money : ฿ {{money}} </p>{% endif %}
+                    </form>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">วันที่</th>
+                                <th scope="col">จำนวน</th>
+                                <th scope="col">โดย</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for topup in topup_list %}
+                            <tr>
+                                <td>{{ topup.topup_date }}</td>
+                                <td>{{ topup.amount }}</td>
+                                <td>{{ topup.topup_by }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
